@@ -189,7 +189,7 @@
                         </select>
                     </div>
                     <div class="pt-2">
-                        <button type="submit" class="w-full bg-baro text-white font-bold py-4 rounded-[12px] shadow-md hover:bg-baroHover transition-colors flex justify-center items-center gap-2">
+                        <button type="button" id="submitBtn" class="w-full bg-baro text-white font-bold py-4 rounded-[12px] shadow-md hover:bg-baroHover transition-colors flex justify-center items-center gap-2">
                             <span>신청 완료하기</span>
                         </button>
                     </div>
@@ -274,12 +274,15 @@
             // 폼 제출 이벤트 핸들러
             const applicationForm = document.getElementById('applicationForm');
             const successUi = document.getElementById('successUi');
+            const submitBtn = document.getElementById('submitBtn');
             
-            if (applicationForm) {
-                applicationForm.addEventListener('submit', async (e) => {
-                    e.preventDefault(); // 기본 제출 방지
+            if (submitBtn && applicationForm) {
+                submitBtn.addEventListener('click', async (e) => {
+                    if (!applicationForm.checkValidity()) {
+                        applicationForm.reportValidity();
+                        return;
+                    }
                     
-                    const submitBtn = applicationForm.querySelector('button[type="submit"]');
                     const originalText = submitBtn.innerHTML;
                     submitBtn.innerHTML = '처리 중...';
                     submitBtn.disabled = true;
