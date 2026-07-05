@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             { 
                                 name: data.name, 
                                 company: data.company,
+                                location: data.location,
                                 email: data.email,
                                 phone: data.phone, 
                                 service_type: data.service_type 
