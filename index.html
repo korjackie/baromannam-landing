@@ -9,6 +9,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
+        window.onerror = function(msg, url, line, col, error) {
+            alert("JS 오류 발생: " + msg + " (Line: " + line + ")");
+        };
+    </script>
+    <script>
         tailwind.config = {
             theme: {
                 extend: {
@@ -260,10 +265,11 @@
     </footer>
 
     <script>
-        // Supabase 초기화 (발급받은 URL과 KEY를 입력해주세요)
-        const SUPABASE_URL = 'https://onwvbmllypcgswfzywjv.supabase.co';
-        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9ud3ZibWxscHljZ3N3Znp5d2p2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAyMDMyNzksImV4cCI6MjA5NTc3OTI3OX0.CbwhyfqCZp_jjMbHUESVzbPDAZLNV2lpniUkouqLLmQ';
-        const supabase = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY) : null;
+        try {
+            // Supabase 초기화 (발급받은 URL과 KEY를 입력해주세요)
+            const SUPABASE_URL = 'https://onwvbmllypcgswfzywjv.supabase.co';
+            const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9ud3ZibWxscHljZ3N3Znp5d2p2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAyMDMyNzksImV4cCI6MjA5NTc3OTI3OX0.CbwhyfqCZp_jjMbHUESVzbPDAZLNV2lpniUkouqLLmQ';
+            const supabase = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY) : null;
 
         // URL에 남아있는 쿼리 파라미터(이름, 이메일 등)가 있다면 깔끔하게 지워줌
         if (window.location.search) {
@@ -403,7 +409,11 @@
                     });
                 }
             });
-        });
+        }
+        
+        } catch(err) {
+            alert("스크립트 초기화 오류: " + err.message);
+        }
     </script>
 </body>
 </html>
