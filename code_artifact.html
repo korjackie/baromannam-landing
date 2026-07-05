@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>바로만남 - 직장인 전용 미팅 플랫폼</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        baro: '#C8102E', // 바로알바 공식 메인 컬러
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Pretendard', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <nav class="sticky top-0 bg-white/95 backdrop-blur-md z-50 border-b border-gray-100 px-5 py-3">
+        <div class="max-w-md mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <!-- 타겟 아이콘 로고 (SVG) -->
+                <div class="w-8 h-8 bg-baro rounded-lg flex items-center justify-center">
+                    <svg viewBox="0 0 100 100" class="w-6 h-6 text-white">
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="8"/>
+                        <circle cx="50" cy="50" r="25" fill="none" stroke="currentColor" stroke-width="8"/>
+                        <circle cx="50" cy="50" r="10" fill="currentColor"/>
+                        <path d="M50 50 L85 15" stroke="#3b82f6" stroke-width="8" stroke-linecap="round"/>
+                        <path d="M85 15 L70 15 L85 30 Z" fill="#3b82f6"/>
+                    </svg>
+                </div>
+                <div class="flex items-center space-x-1">
+                    <span class="text-baro font-bold text-xl">BARO</span>
+                    <span class="font-bold text-xl text-gray-800">만남</span>
+                </div>
+            </div>
+            <a href="https://baroalba.multimove.co.kr" class="text-sm font-semibold text-gray-500 bg-gray-100 px-3 py-1.5 rounded-full hover:bg-gray-200 transition">앱으로 이동</a>
+        </div>
+    </nav>
+
+    <main class="max-w-md mx-auto px-5 pb-20">
+        <section class="py-10 text-center">
+            <h1 class="text-3xl font-bold leading-tight mb-4">
+                종로 직장인의<br>
+                <span class="text-baro">가장 완벽한 만남</span>
+            </h1>
+            <p class="text-gray-500 mb-8">
+                검증된 직장인들끼리의 설레는 만남.<br>
+                지금 바로 앱을 통해 시작하세요.
+            </p>
+            <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100">
+                <a href="https://baroalba.multimove.co.kr" class="block w-full bg-baro text-white font-bold py-4 rounded-2xl shadow-lg shadow-red-200 hover:bg-red-700 transition">
+                    바로 시작하기
+                </a>
+            </div>
+        </section>
+
+        <section class="py-6">
+            <h2 class="text-lg font-bold mb-4 px-1">서비스 소개</h2>
+            <div class="space-y-4">
+                <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm">
+                    <div class="w-12 h-12 bg-yellow-50 flex items-center justify-center rounded-2xl mb-4 text-2xl">🍱</div>
+                    <h3 class="text-xl font-bold mb-1">바로미팅</h3>
+                    <p class="text-gray-500 text-sm mb-3">점심 & 저녁 4:4 그룹 미팅</p>
+                    <p class="text-sm leading-relaxed text-gray-700">점심시간의 여유, 퇴근 후 저녁의 낭만. 직장인들을 위한 효율적이고 검증된 그룹 미팅 서비스입니다.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm">
+                    <div class="w-12 h-12 bg-blue-50 flex items-center justify-center rounded-2xl mb-4 text-2xl">🎯</div>
+                    <h3 class="text-xl font-bold mb-1">바로스팟</h3>
+                    <p class="text-gray-500 text-sm mb-3">위치 기반 미션 매칭</p>
+                    <p class="text-sm leading-relaxed text-gray-700">목적지 반경 내에서 운명처럼 찾아오는 긴장감 넘치는 매칭. 게임처럼 즐거운 만남을 지금 경험하세요.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-6">
+            <h2 class="text-lg font-bold mb-4 px-1">BARO 생태계</h2>
+            <div class="grid grid-cols-2 gap-4">
+                <a href="https://baroalba.multimove.co.kr" class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition">
+                    <div class="text-xl mb-2">💰</div>
+                    <h4 class="font-bold text-sm">바로알바</h4>
+                    <p class="text-xs text-gray-500 mt-1">직장인 N잡의 시작</p>
+                </a>
+                <a href="https://baroalba.multimove.co.kr" class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition">
+                    <div class="text-xl mb-2">👥</div>
+                    <h4 class="font-bold text-sm">바로모임</h4>
+                    <p class="text-xs text-gray-500 mt-1">취향 공유 커뮤니티</p>
+                </a>
+            </div>
+        </section>
+
+        <footer class="text-center py-10">
+            <p class="text-xs text-gray-400">© 2026 BARO Corp. All rights reserved.</p>
+        </footer>
+    </main>
+
+    <script>
+        console.log("바로만남 정식 페이지 로드 완료.");
+    </script>
+</body>
+</html>

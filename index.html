@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>바로만남 - 직장인 전용 프리미엄 매칭 플랫폼</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="점심시간 4:4 미팅부터 위치 기반 미션 매칭까지. 직장인들의 라이프스타일을 혁신하는 새로운 만남, 바로만남에서 시작하세요.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        baro: '#C8102E', // 바로알바 공식 메인 컬러
+                        baroHover: '#A60D25'
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="./css/style.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-900 flex flex-col min-h-screen">
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 bg-white/90 backdrop-blur-lg z-50 border-b border-gray-100 px-5 py-3 shadow-sm">
+        <div class="max-w-md mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <!-- 로고 영역 -->
+                <div class="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center bg-white shadow-sm border border-gray-100">
+                    <img src="./바로알바%20최종로고.png" alt="바로알바 로고" class="w-full h-full object-cover">
+                </div>
+                <div class="flex items-center space-x-1 tracking-tight">
+                    <span class="text-baro font-extrabold text-xl">BARO</span>
+                    <span class="font-extrabold text-xl text-gray-800">만남</span>
+                </div>
+            </div>
+            <!-- 앱으로 이동 버튼 (Pulse Animation) -->
+            <a href="https://baroalba.multimove.co.kr" target="_blank" class="animate-pulse-ring relative bg-baro text-white text-xs font-bold px-4 py-2 rounded-full shadow-md hover:bg-baroHover transition">
+                앱으로 이동
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-md mx-auto w-full flex-grow pb-24">
+        
+        <!-- Hero Section -->
+        <section class="px-5 py-12 text-center">
+            <div class="inline-block bg-red-50 text-baro text-xs font-bold px-3 py-1 rounded-full mb-4">
+                🚀 베타 테스터 모집 중
+            </div>
+            <h1 class="text-[32px] font-extrabold leading-tight mb-5 tracking-tight">
+                직장인들의 점심시간이<br>
+                <span class="text-baro">달라집니다</span>
+            </h1>
+            <p class="text-gray-500 text-sm mb-8 leading-relaxed px-2">
+                강남, 판교, 여의도, 종로 등 핵심 업무지구에서<br>
+                검증된 직장인들끼리의 설레는 만남을 경험하세요.
+            </p>
+            <div class="bg-white rounded-[24px] p-6 shadow-sm border border-gray-100">
+                <a href="#applicationForm" class="block w-full bg-baro text-white font-bold py-4 rounded-[16px] shadow-lg shadow-red-200/50 hover:bg-baroHover hover:scale-[1.02] transition-transform duration-200">
+                    참가 신청하기
+                </a>
+            </div>
+        </section>
+
+        <!-- Service Intro Section -->
+        <section class="px-5 py-8">
+            <div class="flex items-center justify-between mb-5 px-1">
+                <h2 class="text-xl font-extrabold tracking-tight">서비스 소개</h2>
+            </div>
+            
+            <div class="space-y-5">
+                <!-- Service 1: 바로미팅 -->
+                <div class="bg-white p-6 rounded-[24px] border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-yellow-50 rounded-full blur-3xl -mr-10 -mt-10 transition-all group-hover:bg-yellow-100"></div>
+                    <div class="relative z-10">
+                        <div class="w-full h-40 bg-gray-50 rounded-[16px] mb-5 overflow-hidden border border-gray-100 shadow-sm flex items-center justify-center">
+                            <img src="./images/baro_meeting.png" alt="바로미팅 일러스트" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">바로미팅</h3>
+                        <div class="inline-block bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-md mb-4 font-semibold">효율 매칭</div>
+                        <p class="text-[15px] leading-relaxed text-gray-600 font-medium">
+                            점심시간의 여유, 퇴근 후 저녁의 낭만.<br>
+                            직장인들을 위한 <strong>4:4 룸 미팅</strong>입니다.<br>
+                            사전 메뉴 선정으로 운영의 효율을 높였습니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 2: 바로스팟 -->
+                <div class="bg-white p-6 rounded-[24px] border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-red-50 rounded-full blur-3xl -mr-10 -mt-10 transition-all group-hover:bg-red-100"></div>
+                    <div class="relative z-10">
+                        <div class="w-full h-40 bg-gray-50 rounded-[16px] mb-5 overflow-hidden border border-gray-100 shadow-sm flex items-center justify-center">
+                            <img src="./images/baro_spot.png" alt="바로스팟 일러스트" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">바로스팟</h3>
+                        <div class="inline-block bg-baro/10 text-baro text-xs px-2 py-1 rounded-md mb-4 font-bold">게임 매칭</div>
+                        <p class="text-[15px] leading-relaxed text-gray-600 font-medium mb-6">
+                            목적지 반경 300m 이내 진입 시 장소 오픈!<br>
+                            긴장감 넘치는 <strong>도둑과 경찰</strong> 컨셉의<br>
+                            위치 기반 매칭을 경험해 보세요.
+                        </p>
+                        
+                        <!-- Map Marker Animation Area -->
+                        <div class="w-full h-32 bg-gray-50 rounded-[16px] border border-gray-200 flex items-center justify-center relative overflow-hidden">
+                            <!-- Background Map Grid (Decorative) -->
+                            <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#C8102E 1px, transparent 1px); background-size: 16px 16px;"></div>
+                            
+                            <!-- Animated Marker -->
+                            <div class="relative flex items-center justify-center">
+                                <div class="absolute w-12 h-12 bg-baro/30 rounded-full marker-wave"></div>
+                                <div class="relative marker-pin">
+                                    <svg class="w-8 h-8 text-baro drop-shadow-md" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Application Form Section (Supabase Ready) -->
+        <section class="px-5 py-8">
+            <div class="bg-white p-6 rounded-[24px] border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)]">
+                <h2 class="text-xl font-extrabold mb-1">베타 테스터 신청</h2>
+                <p class="text-xs text-gray-500 mb-6">초기 타겟 대상 한정으로 진행됩니다.</p>
+                
+                <form id="applicationForm" class="space-y-4">
+                    <div>
+                        <label for="name" class="block text-sm font-bold text-gray-700 mb-1">이름</label>
+                        <input type="text" id="name" name="name" required class="w-full bg-gray-50 border border-gray-200 rounded-[12px] px-4 py-3 text-sm focus:bg-white transition-colors" placeholder="홍길동">
+                    </div>
+                    <div>
+                        <label for="company" class="block text-sm font-bold text-gray-700 mb-1">직장명</label>
+                        <input type="text" id="company" name="company" required class="w-full bg-gray-50 border border-gray-200 rounded-[12px] px-4 py-3 text-sm focus:bg-white transition-colors" placeholder="소속 회사를 입력해주세요">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-bold text-gray-700 mb-1">이메일</label>
+                        <input type="email" id="email" name="email" required class="w-full bg-gray-50 border border-gray-200 rounded-[12px] px-4 py-3 text-sm focus:bg-white transition-colors" placeholder="example@company.com">
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-sm font-bold text-gray-700 mb-1">연락처</label>
+                        <input type="tel" id="phone" name="phone" required class="w-full bg-gray-50 border border-gray-200 rounded-[12px] px-4 py-3 text-sm focus:bg-white transition-colors" placeholder="010-0000-0000">
+                    </div>
+                    <div>
+                        <label for="service_type" class="block text-sm font-bold text-gray-700 mb-1">관심 서비스</label>
+                        <select id="service_type" name="service_type" class="w-full bg-gray-50 border border-gray-200 rounded-[12px] px-4 py-3 text-sm focus:bg-white transition-colors">
+                            <option value="baro_meeting">바로미팅 (점심/저녁 4:4 룸 미팅)</option>
+                            <option value="baro_spot">바로스팟 (위치기반 매칭)</option>
+                            <option value="both">둘 다 관심 있음</option>
+                        </select>
+                    </div>
+                    <div class="pt-2">
+                        <button type="submit" class="w-full bg-baro text-white font-bold py-4 rounded-[12px] shadow-md hover:bg-baroHover transition-colors flex justify-center items-center gap-2">
+                            <span>신청 완료하기</span>
+                        </button>
+                    </div>
+                </form>
+                
+                <!-- Success UI (Hidden by default) -->
+                <div id="successUi" class="hidden text-center py-6">
+                    <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4 shadow-sm border border-green-200">
+                        🎉
+                    </div>
+                    <h3 class="text-xl font-extrabold mb-2">신청이 완료되었습니다!</h3>
+                    <p class="text-sm text-gray-500 mb-6 leading-relaxed">
+                        초기 테스터로 선정되시면 개별 안내 드릴 예정입니다.<br>
+                        지금 바로 앱을 설치하고 다양한 만남을 둘러보세요.
+                    </p>
+                    <a href="https://baroalba.multimove.co.kr" target="_blank" class="block w-full bg-baro text-white font-bold py-4 rounded-[12px] shadow-lg shadow-red-200 hover:bg-baroHover transition-all animate-pulse-ring">
+                        바로알바 앱 설치하고 시작하기
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- BARO Ecosystem Section -->
+        <section class="px-5 py-8 mb-10">
+            <h2 class="text-xl font-extrabold mb-5 px-1 tracking-tight">BARO 생태계</h2>
+            <div class="grid grid-cols-2 gap-4">
+                <a href="https://baroalba.multimove.co.kr" target="_blank" class="bg-white p-5 rounded-[20px] border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
+                    <div class="w-10 h-10 bg-red-50 rounded-full flex items-center justify-center text-xl mb-3">💰</div>
+                    <h4 class="font-bold text-sm text-gray-900">바로알바</h4>
+                    <p class="text-[11px] text-gray-500 mt-1 font-medium">직장인 N잡의 시작</p>
+                </a>
+                <div class="bg-white p-5 rounded-[20px] border border-gray-100 shadow-sm opacity-80 cursor-not-allowed">
+                    <div class="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center text-xl mb-3">👥</div>
+                    <h4 class="font-bold text-sm text-gray-900">바로모임</h4>
+                    <p class="text-[11px] text-gray-500 mt-1 font-medium">취향 공유 커뮤니티 (준비중)</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-10 mt-auto">
+        <div class="max-w-md mx-auto px-5">
+            <div class="mb-6">
+                <h3 class="text-white font-bold text-lg mb-2">MultiMOVE 주식회사</h3>
+                <p class="text-xs leading-relaxed text-gray-400">
+                    대표자: 박근욱 | 사업자등록번호: 265-87-03885<br>
+                    주소: 서울특별시 강남구 논현로75길 15, 501호<br>
+                    이메일: <a href="mailto:contact@multimove.co.kr" class="text-gray-300 hover:text-white transition">contact@multimove.co.kr</a> | 전화: 010-8972-3035
+                </p>
+            </div>
+            
+            <div class="flex gap-4 text-xs font-medium mb-6">
+                <a href="#" class="hover:text-white transition">이용약관</a>
+                <a href="#" class="hover:text-white transition">개인정보처리방침</a>
+                <a href="#" class="hover:text-white transition">고객센터</a>
+            </div>
+
+            <p class="text-[10px] text-gray-500 font-medium">
+                © MultiMOVE Corp. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>

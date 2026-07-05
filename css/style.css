@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap');
+
+body {
+    font-family: 'Pretendard', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 부드러운 스크롤 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 앱으로 이동 버튼 펄스 애니메이션 */
+@keyframes pulse-ring {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(200, 16, 46, 0.7);
+    }
+    
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 8px rgba(200, 16, 46, 0);
+    }
+    
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(200, 16, 46, 0);
+    }
+}
+
+.animate-pulse-ring {
+    animation: pulse-ring 2s infinite;
+}
+
+/* 지도 마커 바운스 및 웨이브 애니메이션 */
+@keyframes marker-bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes marker-wave {
+    0% {
+        transform: scale(0.5);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+.marker-pin {
+    animation: marker-bounce 2s ease-in-out infinite;
+}
+
+.marker-wave {
+    animation: marker-wave 2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+
+/* 입력 필드 포커스 스타일 커스텀 */
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #C8102E;
+    box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.1);
+}
