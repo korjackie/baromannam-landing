@@ -355,8 +355,7 @@
                             "이메일": data.email,
                             "연락처": data.phone,
                             "관심 서비스": data.service_type === 'baro_meeting' ? '바로미팅' : 
-                                        data.service_type === 'baro_spot' ? '바로스팟' : '둘 다',
-                            "DB_상태": dbErrorMsg || "성공적으로 저장됨"
+                                        data.service_type === 'baro_spot' ? '바로스팟' : '둘 다'
                         })
                     }).then(response => console.log('이메일 알림 전송 요청됨', response.status))
                     .catch(err => console.error('이메일 알림 전송 실패', err));
