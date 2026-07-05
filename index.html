@@ -297,24 +297,33 @@
                 const data = Object.fromEntries(formData.entries());
                 
                 try {
+                    let dbErrorMsg = "";
                     if(supabase) {
                         // Supabase 연동 시도
-                        const { error } = await supabase
-                            .from('baromannam_beta_testers')
-                            .insert([
-                                { 
-                                    name: data.name, 
-                                    gender: data.gender,
-                                    company: data.company,
-                                    birthdate: data.birthdate,
-                                    location: data.location,
-                                    email: data.email,
-                                    phone: data.phone, 
-                                    service_type: data.service_type 
-                                }
-                            ]);
-                            
-                        if (error) throw error;
+                        try {
+                            const { error } = await supabase
+                                .from('baromannam_beta_testers')
+                                .insert([
+                                    { 
+                                        name: data.name, 
+                                        gender: data.gender,
+                                        company: data.company,
+                                        birthdate: data.birthdate,
+                                        location: data.location,
+                                        email: data.email,
+                                        phone: data.phone, 
+                                        service_type: data.service_type 
+                                    }
+                                ]);
+                                
+                            if (error) {
+                                console.error("Supabase 에러:", error);
+                                dbErrorMsg = " (주의: DB 저장 실패, 에러: " + (error.message || JSON.stringify(error)) + ")";
+                            }
+                        } catch (supaErr) {
+                            console.error("Supabase 통신 실패:", supaErr);
+                            dbErrorMsg = " (주의: DB 통신 차단됨 - AdBlock 또는 CORS 에러)";
+                        }
                     } else {
                         console.log('Supabase 클라이언트가 초기화되지 않았습니다. 임시 성공 처리:', data);
                     }
@@ -332,7 +341,7 @@
                             'Accept': 'application/json'
                         },
                         body: JSON.stringify({
-                            _subject: "🚀 [바로만남] 새로운 베타 테스터 신청이 접수되었습니다!",
+                            _subject: "🚀 [바로만남] 새로운 베타 테스터 신청이 접수되었습니다!" + (dbErrorMsg ? " [DB저장실패]" : ""),
                             _autoresponse: "바로만남 베타 테스터 신청이 완료되었습니다!\n\n관심을 가져주셔서 감사합니다.\n초기 테스터로 선정되시면 본 이메일이나 연락처로 개별 안내를 드릴 예정입니다.\n\n앱 출시 전, '바로알바' 앱을 먼저 설치하시고 생태계를 미리 경험해 보세요!\n👉 앱 설치하러 가기: https://baroalba.multimove.co.kr",
                             "이름": data.name,
                             "성별": data.gender === 'male' ? '남성' : '여성',
@@ -346,7 +355,8 @@
                             "이메일": data.email,
                             "연락처": data.phone,
                             "관심 서비스": data.service_type === 'baro_meeting' ? '바로미팅' : 
-                                        data.service_type === 'baro_spot' ? '바로스팟' : '둘 다'
+                                        data.service_type === 'baro_spot' ? '바로스팟' : '둘 다',
+                            "DB_상태": dbErrorMsg || "성공적으로 저장됨"
                         })
                     }).then(response => console.log('이메일 알림 전송 요청됨', response.status))
                     .catch(err => console.error('이메일 알림 전송 실패', err));
@@ -357,8 +367,8 @@
                     }, 3000);
                     
                 } catch (error) {
-                    console.error('Supabase 전송 오류:', error);
-                    alert('신청 처리 중 오류가 발생했습니다.\n상세: ' + (error.message || JSON.stringify(error)));
+                    console.error('크리티컬 에러:', error);
+                    alert('신청 처리 중 치명적인 오류가 발생했습니다.\n상세: ' + (error.message || JSON.stringify(error)));
                     submitBtn.innerHTML = originalText;
                     submitBtn.disabled = false;
                 }
