@@ -4,6 +4,11 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 const supabase = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY) : null;
 
 document.addEventListener('DOMContentLoaded', () => {
+    // URL에 남아있는 쿼리 파라미터(이름, 이메일 등)가 있다면 깔끔하게 지워줌
+    if (window.location.search) {
+        window.history.replaceState({}, document.title, window.location.pathname);
+    }
+
     // 폼 제출 이벤트 핸들러
     const applicationForm = document.getElementById('applicationForm');
     const successUi = document.getElementById('successUi');
