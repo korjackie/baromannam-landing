@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         .insert([
                             { 
                                 name: data.name, 
+                                gender: data.gender,
                                 company: data.company,
                                 birthdate: data.birthdate,
                                 location: data.location,
@@ -62,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     body: JSON.stringify({
                         _subject: "🚀 [바로만남] 새로운 베타 테스터 신청이 접수되었습니다!",
                         "이름": data.name,
+                        "성별": data.gender === 'male' ? '남성' : '여성',
                         "생년월일": data.birthdate,
                         "직장명": data.company,
                         "지역": data.location === 'gangnam' ? '강남권' : 
@@ -84,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
             } catch (error) {
                 console.error('Supabase 전송 오류:', error);
-                alert('신청 처리 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
+                alert('신청 처리 중 오류가 발생했습니다.\n상세: ' + (error.message || JSON.stringify(error)));
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
             }
