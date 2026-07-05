@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             { 
                                 name: data.name, 
                                 company: data.company,
+                                birthdate: data.birthdate,
                                 location: data.location,
                                 email: data.email,
                                 phone: data.phone, 
@@ -56,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     body: JSON.stringify({
                         _subject: "🚀 [바로만남] 새로운 베타 테스터 신청이 접수되었습니다!",
                         "이름": data.name,
+                        "생년월일": data.birthdate,
                         "직장명": data.company,
                         "지역": data.location === 'gangnam' ? '강남권' : 
                                 data.location === 'jongno' ? '종로/중구권' : 
@@ -95,6 +97,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 val = val.substring(0, 3) + '-' + val.substring(3, 7) + '-' + val.substring(7, 11);
             }
             this.value = val;
+        });
+    }
+
+    // 생년월일 숫자만 입력되도록 강제 (8자리 제한은 HTML maxlength=8로 처리)
+    const birthdateInput = document.getElementById('birthdate');
+    if (birthdateInput) {
+        birthdateInput.addEventListener('input', function (e) {
+            this.value = this.value.replace(/[^0-9]/g, '');
         });
     }
 
