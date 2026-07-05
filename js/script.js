@@ -70,12 +70,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 }).then(response => console.log('이메일 알림 전송 요청됨', response.status))
                   .catch(err => console.error('이메일 알림 전송 실패', err));
                 
+                // 3초 후 앱으로 자동 이동
+                setTimeout(() => {
+                    window.location.href = "https://baroalba.multimove.co.kr";
+                }, 3000);
+                
             } catch (error) {
                 console.error('Supabase 전송 오류:', error);
                 alert('신청 처리 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
             }
+        });
+    }
+
+    // 연락처 자동 하이픈(-) 포맷팅 로직
+    const phoneInput = document.getElementById('phone');
+    if (phoneInput) {
+        phoneInput.addEventListener('input', function (e) {
+            let val = this.value.replace(/[^0-9]/g, '');
+            if (val.length > 3 && val.length <= 7) {
+                val = val.substring(0, 3) + '-' + val.substring(3);
+            } else if (val.length > 7) {
+                val = val.substring(0, 3) + '-' + val.substring(3, 7) + '-' + val.substring(7, 11);
+            }
+            this.value = val;
         });
     }
 
