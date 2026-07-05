@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>바로모임 (BaRoMoim) - 관심사 기반 소규모 모임 매칭</title>
+    <meta name="description" content="위치 기반으로 소규모 모임을 만들고 참여하는 커뮤니티 플랫폼">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        baro: '#C8102E', // 바로 메인 컬러
+                        baroHover: '#A60D25'
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="./css/style.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-900 flex flex-col min-h-screen">
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 bg-white/90 backdrop-blur-lg z-50 border-b border-gray-100 px-5 py-3 shadow-sm">
+        <div class="max-w-md mx-auto flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
+                <!-- 로고 영역 -->
+                <div class="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center bg-white shadow-sm border border-gray-100">
+                    <img src="./바로알바%20최종로고.png" alt="로고" class="w-full h-full object-cover">
+                </div>
+                <div class="flex items-center space-x-1 tracking-tight">
+                    <span class="text-baro font-extrabold text-xl">BARO</span>
+                    <span class="font-extrabold text-xl text-gray-800">모임</span>
+                </div>
+            </a>
+            <!-- 홈으로 돌아가기 버튼 -->
+            <a href="index.html" class="text-sm font-semibold text-gray-500 hover:text-gray-800 transition">
+                홈으로
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-md mx-auto w-full bg-white shadow-sm">
+        
+        <!-- Hero Section -->
+        <section class="relative bg-white pt-8 pb-10 px-5 border-b border-gray-100">
+            <div class="text-center mb-8">
+                <span class="inline-block px-3 py-1 bg-red-50 text-baro text-xs font-bold rounded-full mb-3 shadow-sm border border-red-100">
+                    🤝 위치 기반 복합 커뮤니티
+                </span>
+                <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 mb-3 leading-tight">
+                    "같은 취미,<br><span class="text-baro">같은 동네</span>"
+                </h1>
+                <p class="text-gray-500 text-sm leading-relaxed px-2 break-keep">
+                    위치 기반으로 소규모 모임을 만들고 참여하는 커뮤니티 플랫폼
+                </p>
+            </div>
+            
+            <!-- Main Image -->
+            <div class="w-full rounded-[24px] overflow-hidden shadow-xl border border-gray-100 relative bg-gray-50">
+                <img src="./images/baro_moim_korean.png" alt="바로모임 서비스 소개" class="w-full h-auto object-cover">
+            </div>
+        </section>
+
+        <!-- Background Section -->
+        <section class="px-5 py-10 bg-gray-50 border-b border-gray-100">
+            <h2 class="text-xl font-extrabold mb-4 px-1 tracking-tight text-gray-900 flex items-center gap-2">
+                <span class="text-xl">💡</span> 왜 바로모임인가요?
+            </h2>
+            <div class="bg-white p-6 rounded-[20px] shadow-sm border border-gray-100 leading-relaxed text-[15px] text-gray-700 space-y-4">
+                <p>
+                    코로나 이후 사람들 간의 오프라인 연결이 약해졌습니다. 바로모임은 동네 기반의 소규모 모임(러닝, 독서, 맛집탐방, 운동 등)을 <strong>누구나 쉽게 개설하고 참여할 수 있는 따뜻한 공간</strong>을 제공합니다.
+                </p>
+                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 mt-2">
+                    <div class="flex items-start gap-2">
+                        <span class="text-baro font-bold">Tip:</span>
+                        <span class="text-sm">바로알바 앱 안에 탭 형태로 통합되어 있어, <strong>별도 앱 설치 없이</strong> 바로 이용하실 수 있습니다!</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="px-5 py-10 bg-white border-b border-gray-100">
+            <h2 class="text-xl font-extrabold mb-6 px-1 tracking-tight text-gray-900 flex items-center gap-2">
+                <span class="text-xl">✨</span> 핵심 기능
+            </h2>
+            
+            <div class="grid grid-cols-1 gap-3">
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-full bg-red-50 text-baro flex items-center justify-center flex-shrink-0 text-lg">📝</div>
+                    <div>
+                        <h4 class="font-bold text-gray-900 mb-1">모임 개설</h4>
+                        <p class="text-[13px] text-gray-600 leading-relaxed break-keep">날짜, 장소, 인원을 자유롭게 설정하여 원하는 모임을 즉시 개설할 수 있습니다.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-full bg-red-50 text-baro flex items-center justify-center flex-shrink-0 text-lg">📍</div>
+                    <div>
+                        <h4 class="font-bold text-gray-900 mb-1">주변 모임 탐색</h4>
+                        <p class="text-[13px] text-gray-600 leading-relaxed break-keep">내 위치를 기반으로 현재 주변에서 열리고 있는 모임들을 한눈에 탐색합니다.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-full bg-red-50 text-baro flex items-center justify-center flex-shrink-0 text-lg">💬</div>
+                    <div>
+                        <h4 class="font-bold text-gray-900 mb-1">실시간 채팅</h4>
+                        <p class="text-[13px] text-gray-600 leading-relaxed break-keep">신청 및 개설 시 참여자들과 실시간 단체 채팅방으로 소통할 수 있습니다.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-full bg-red-50 text-baro flex items-center justify-center flex-shrink-0 text-lg">⭐</div>
+                    <div>
+                        <h4 class="font-bold text-gray-900 mb-1">후기 및 평점</h4>
+                        <p class="text-[13px] text-gray-600 leading-relaxed break-keep">모임 완료 후 참여자들의 솔직한 후기와 평점 시스템으로 신뢰도를 높입니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Target -->
+        <section class="px-5 py-10 bg-gray-50 border-b border-gray-100">
+            <h2 class="text-xl font-extrabold mb-5 px-1 tracking-tight text-gray-900 flex items-center gap-2">
+                <span class="text-xl">🎯</span> 타겟 사용자
+            </h2>
+            <div class="space-y-4">
+                <div class="bg-white p-5 rounded-[20px] border border-gray-200 shadow-sm flex items-center gap-4">
+                    <div class="text-3xl">🧑‍🤝‍🧑</div>
+                    <div>
+                        <h4 class="font-bold text-gray-900 mb-1">새로운 인연을 찾는 분</h4>
+                        <p class="text-[13px] text-gray-600">동네에서 새로운 친구나 인연을 만들고 싶은 20~40대</p>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-[20px] border border-gray-200 shadow-sm flex items-center gap-4">
+                    <div class="text-3xl">🎾</div>
+                    <div>
+                        <h4 class="font-bold text-gray-900 mb-1">취미 모임 운영자</h4>
+                        <p class="text-[13px] text-gray-600">러닝, 독서, 테니스 등 소규모 모임을 주최하고 싶은 누구나</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="px-5 py-12 text-center bg-white">
+            <h3 class="text-2xl font-extrabold mb-3">지금 바로 시작해보세요</h3>
+            <p class="text-sm text-gray-500 mb-8">내 주변의 새로운 인연이 당신을 기다립니다.</p>
+            <a href="https://baroalba.multimove.co.kr" target="_blank" class="block w-full bg-baro text-white text-lg font-bold py-5 rounded-[16px] shadow-lg shadow-red-200 hover:bg-baroHover transition-all animate-pulse-ring">
+                앱 설치하고 바로모임 시작하기
+            </a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-10 mt-auto">
+        <div class="max-w-md mx-auto px-5">
+            <div class="mb-6">
+                <h3 class="text-white font-bold text-lg mb-2">MultiMOVE 주식회사</h3>
+                <p class="text-xs leading-relaxed text-gray-400">
+                    대표자: 박근욱 | 사업자등록번호: 265-87-03885<br>
+                    주소: 서울특별시 강남구 논현로75길 15, 501호<br>
+                    이메일: contact@multimove.co.kr
+                </p>
+            </div>
+            <div class="border-t border-gray-800 pt-6">
+                <p class="text-[10px] text-gray-500">
+                    © 2026 MultiMOVE Inc. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
