@@ -6,6 +6,9 @@
     <title>바로만남 - 직장인 전용 프리미엄 매칭 플랫폼</title>
     <!-- SEO Meta Tags -->
     <meta name="description" content="점심시간 4:4 미팅부터 위치 기반 미션 매칭까지. 직장인들의 라이프스타일을 혁신하는 새로운 만남, 바로만남에서 시작하세요.">
+    <!-- 폰트 Preload (FOUT 방지) -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" as="style">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
@@ -89,8 +92,12 @@
                         <div class="w-full h-40 bg-gray-50 rounded-[16px] mb-5 overflow-hidden border border-gray-100 shadow-sm flex items-center justify-center">
                             <img src="./images/baro_meeting.png" alt="바로미팅 일러스트" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         </div>
-                        <h3 class="text-2xl font-bold mb-2">바로미팅</h3>
-                        <div class="inline-block bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-md mb-4 font-semibold">효율 매칭</div>
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-2xl font-extrabold tracking-tight text-gray-800">
+                                <span class="text-baro">BARO</span>미팅
+                            </h3>
+                            <div class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-md font-semibold">효율 매칭</div>
+                        </div>
                         <p class="text-[15px] leading-relaxed text-gray-600 font-medium">
                             점심시간의 여유, 퇴근 후 저녁의 낭만.<br>
                             직장인들을 위한 <strong>4:4 룸 미팅</strong>입니다.<br>
@@ -106,8 +113,12 @@
                         <div class="w-full h-40 bg-gray-50 rounded-[16px] mb-5 overflow-hidden border border-gray-100 shadow-sm flex items-center justify-center">
                             <img src="./images/baro_spot.png" alt="바로스팟 일러스트" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         </div>
-                        <h3 class="text-2xl font-bold mb-2">바로스팟</h3>
-                        <div class="inline-block bg-baro/10 text-baro text-xs px-2 py-1 rounded-md mb-4 font-bold">게임 매칭</div>
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-2xl font-extrabold tracking-tight text-gray-800">
+                                <span class="text-baro">BARO</span>스팟
+                            </h3>
+                            <div class="bg-baro/10 text-baro text-xs px-2 py-1 rounded-md font-bold">게임 매칭</div>
+                        </div>
                         <p class="text-[15px] leading-relaxed text-gray-600 font-medium mb-6">
                             목적지 반경 300m 이내 진입 시 장소 오픈!<br>
                             긴장감 넘치는 <strong>도둑과 경찰</strong> 컨셉의<br>
