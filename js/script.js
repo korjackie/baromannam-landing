@@ -44,6 +44,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 // 성공 UI 전환
                 applicationForm.classList.add('hidden');
                 successUi.classList.remove('hidden');
+
+                // 2. 관리자 이메일 자동 알림 발송 (formsubmit.co AJAX API 사용)
+                // 이메일 전송은 백그라운드에서 실행되도록 await 하지 않음
+                fetch("https://formsubmit.co/ajax/contact@multimove.co.kr", {
+                    method: "POST",
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        _subject: "🚀 [바로만남] 새로운 베타 테스터 신청이 접수되었습니다!",
+                        "이름": data.name,
+                        "직장명": data.company,
+                        "지역": data.location === 'gangnam' ? '강남권' : 
+                                data.location === 'jongno' ? '종로/중구권' : 
+                                data.location === 'yeouido' ? '여의도권' : 
+                                data.location === 'pangyo' ? '판교/분당권' : 
+                                data.location === 'guro' ? '구로/가산권' : '기타 지역',
+                        "이메일": data.email,
+                        "연락처": data.phone,
+                        "관심 서비스": data.service_type === 'baro_meeting' ? '바로미팅' : 
+                                      data.service_type === 'baro_spot' ? '바로스팟' : '둘 다'
+                    })
+                }).then(response => console.log('이메일 알림 전송 요청됨', response.status))
+                  .catch(err => console.error('이메일 알림 전송 실패', err));
                 
             } catch (error) {
                 console.error('Supabase 전송 오류:', error);
