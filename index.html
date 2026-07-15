@@ -167,6 +167,15 @@
                     </div>
                 </div>
             </div>
+
+            <!-- 프리미엄 가이드 링크 버튼 -->
+            <div class="mt-8 text-center px-2">
+                <a href="service_intro_premium.html" target="_blank" class="flex items-center justify-center gap-2 bg-gray-900 text-white font-bold py-4 px-6 rounded-[16px] shadow-[0_8px_20px_rgba(0,0,0,0.15)] hover:bg-gray-800 hover:-translate-y-1 transition-all duration-300">
+                    <span class="text-xl">✨</span> 프리미엄 가이드 & 서비스 상세보기
+                    <svg class="w-5 h-5 ml-1 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+                <p class="text-[12px] text-gray-500 mt-3 font-medium">새 창에서 더욱 상세하고 세련된 서비스 가이드를 확인해보세요.</p>
+            </div>
         </section>
 
         <!-- Application Form Section (Supabase Ready) -->
@@ -267,23 +276,69 @@
         </section>
 
         <!-- BARO Ecosystem Section -->
-        <section class="px-5 py-8 mb-10">
-            <h2 class="text-xl font-extrabold mb-5 px-1 tracking-tight">BARO 생태계</h2>
-            <div class="grid grid-cols-2 gap-4">
-                <a href="baro-alba.html" class="bg-white p-5 rounded-[20px] border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
-                    <div class="w-full h-24 bg-gray-50 rounded-[12px] mb-3 overflow-hidden border border-gray-100 flex items-center justify-center">
-                        <img src="./images/baro_alba.png" alt="바로알바" class="w-full h-full object-cover">
-                    </div>
-                    <h4 class="font-bold text-sm text-gray-900">바로알바</h4>
-                    <p class="text-[11px] text-gray-500 mt-1 font-medium">직장인 N잡의 시작</p>
-                </a>
-                <a href="baro-moim.html" class="bg-white p-5 rounded-[20px] border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
-                    <div class="w-full h-24 bg-gray-50 rounded-[12px] mb-3 overflow-hidden border border-gray-100 flex items-center justify-center">
-                        <img src="./images/baro_moim.png" alt="바로모임" class="w-full h-full object-cover">
-                    </div>
-                    <h4 class="font-bold text-sm text-gray-900">바로모임</h4>
-                    <p class="text-[11px] text-gray-500 mt-1 font-medium">취향 공유 커뮤니티</p>
-                </a>
+        <section class="px-6 py-12 mb-10 bg-white text-gray-900 rounded-[32px] shadow-sm overflow-hidden relative mx-3 border border-gray-100">
+            <!-- Background Glows (Light Mode) -->
+            <div class="absolute top-0 left-0 w-full h-full pointer-events-none opacity-30">
+                <div class="absolute -top-10 -left-10 w-48 h-48 bg-red-200 rounded-full blur-[60px]"></div>
+                <div class="absolute -bottom-10 -right-10 w-48 h-48 bg-purple-200 rounded-full blur-[60px]"></div>
+            </div>
+
+            <div class="relative z-10">
+                <div class="text-center mb-8">
+                    <span class="inline-block px-3 py-1 bg-gray-50 border border-gray-200 text-gray-500 text-[11px] font-extrabold rounded-full mb-3 tracking-widest">BARO UNIVERSE</span>
+                    <h2 class="text-[26px] font-extrabold tracking-tight leading-snug">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-rose-500">일하고</span> · 
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-500">모이고</span> · 
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-400">만나는</span><br>
+                        완벽한 생태계
+                    </h2>
+                </div>
+                
+                <div class="space-y-4">
+                    <!-- 바로알바 프리미엄 카드 (Light) -->
+                    <a href="baro-alba.html" class="block bg-gray-50 border border-gray-200 p-6 rounded-[24px] hover:bg-white hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-[0_8px_32px_rgba(0,0,0,0.06)] group">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center font-bold text-baro border border-red-100 shadow-sm text-xl">A</div>
+                                <div>
+                                    <h4 class="font-extrabold text-[22px] text-gray-900">바로알바</h4>
+                                    <p class="text-[13px] text-red-500 font-bold tracking-tight">초단기 알바 매칭 플랫폼</p>
+                                </div>
+                            </div>
+                            <svg class="w-5 h-5 text-gray-400 group-hover:text-gray-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </div>
+                        <p class="text-[14px] text-gray-600 mb-4 leading-relaxed font-medium">
+                            지도에서 찾고, 클릭으로 지원하세요. 스와이프 한 번으로 즉시 지원하며, 합격 후 실시간 채팅까지 한 곳에서 해결합니다.
+                        </p>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="bg-white text-[11px] font-bold px-3 py-1 rounded-full text-gray-600 border border-gray-200 shadow-sm">#지도기반</span>
+                            <span class="bg-white text-[11px] font-bold px-3 py-1 rounded-full text-gray-600 border border-gray-200 shadow-sm">#스와이프지원</span>
+                            <span class="bg-white text-[11px] font-bold px-3 py-1 rounded-full text-gray-600 border border-gray-200 shadow-sm">#글로벌특화</span>
+                        </div>
+                    </a>
+
+                    <!-- 바로모임 프리미엄 카드 (Light) -->
+                    <a href="baro-moim.html" class="block bg-gray-50 border border-gray-200 p-6 rounded-[24px] hover:bg-white hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-[0_8px_32px_rgba(0,0,0,0.06)] group">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-xl bg-purple-50 flex items-center justify-center font-bold text-purple-600 border border-purple-100 shadow-sm text-xl">M</div>
+                                <div>
+                                    <h4 class="font-extrabold text-[22px] text-gray-900">바로모임</h4>
+                                    <p class="text-[13px] text-purple-500 font-bold tracking-tight">직장인 소모임 플랫폼</p>
+                                </div>
+                            </div>
+                            <svg class="w-5 h-5 text-gray-400 group-hover:text-gray-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </div>
+                        <p class="text-[14px] text-gray-600 mb-4 leading-relaxed font-medium">
+                            관심사로 만나는 가벼운 모임. 10초 만에 모임을 개설하고 한강 러닝, 재테크 스터디 등 목표를 공유하는 챌린지에 참여하세요.
+                        </p>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="bg-white text-[11px] font-bold px-3 py-1 rounded-full text-gray-600 border border-gray-200 shadow-sm">#취향공유</span>
+                            <span class="bg-white text-[11px] font-bold px-3 py-1 rounded-full text-gray-600 border border-gray-200 shadow-sm">#목표챌린지</span>
+                            <span class="bg-white text-[11px] font-bold px-3 py-1 rounded-full text-gray-600 border border-gray-200 shadow-sm">#신뢰평점</span>
+                        </div>
+                    </a>
+                </div>
             </div>
         </section>
 
